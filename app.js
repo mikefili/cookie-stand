@@ -6,7 +6,7 @@ var storeOne = {
   custPerHour: function(minCust, maxCust) {
     var randCust =  Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
     var cookiesPerHour = Math.floor(randCust * this.avgCookies);
-    return cookiesPerHour;
+    return [randCust, cookiesPerHour];
   }
 };
 
