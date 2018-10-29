@@ -2,9 +2,11 @@ var storeOne = {
   name: "First and Pike",
   minCust: 23,
   maxCust: 65,
-  avgCookies: 23,
+  avgCookies: 6.3,
   custPerHour: function(minCust, maxCust) {
-    return Math.floor(Math.random() * (this.minCust - this.maxCust) + this.minCust);
+    var randCust =  Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+    var cookiesPerHour = Math.floor(randCust * this.avgCookies);
+    return cookiesPerHour;
   }
 };
 
