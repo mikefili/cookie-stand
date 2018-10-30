@@ -84,3 +84,5 @@ var storeFive = {
 };
 
 storeFive.custPerHour();
+
+// comment
