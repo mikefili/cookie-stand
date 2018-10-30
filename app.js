@@ -15,12 +15,28 @@ var storeOne = {
       // console.log (cookiesPerHour);
       this.soldPerHour.push(cookiesPerHour);
     }
-  }
+  }//,
+  // render() {
+  //   var container = document.createElement('section');
+  //   var locationEl = document.createElement('ul');
+  //   var messageEl = document.createElement('li');
+
+  //   locationEl.textContent = this.name;
+  //   messageEl.textContent = `hour: ${this.soldPerHour} cookies`;
+
+  //   container.appendChild(locationEl);
+  //   container.appendChild(messageEl);
+  //   console.log('container', container);
+
+  //   var storesEl = document.getElementById('unordered-list');
+  //   storesEl.appendChild(container);
+  // }
 };
 
 storeOne.custPerHour();
 console.log(storeOne.soldPerHour);
 
+// storeOne.render();
 
 var storeTwo = {
   name: "SeaTac Airport",
@@ -35,11 +51,28 @@ var storeTwo = {
       // console.log (cookiesPerHour);
       this.soldPerHour.push(cookiesPerHour);
     }
-  }
+  }//,
+  // render() {
+  //   var container = document.createElement('section');
+  //   var locationEl = document.createElement('ul');
+  //   var messageEl = document.createElement('li');
+
+  //   locationEl.textContent = this.name;
+  //   messageEl.textContent = `hour: ${this.soldPerHour} cookies`;
+
+  //   container.appendChild(locationEl);
+  //   container.appendChild(messageEl);
+  //   console.log('container', container);
+
+  //   var storesEl = document.getElementById('unordered-list');
+  //   storesEl.appendChild(container);
+  // }
 };
 
 storeTwo.custPerHour();
 console.log(storeTwo.soldPerHour);
+
+// storeTwo.render();
 
 var storeThree = {
   name: "Seattle Center",
@@ -54,11 +87,28 @@ var storeThree = {
       // console.log (cookiesPerHour);
       this.soldPerHour.push(cookiesPerHour);
     }
-  }
+  }//,
+  // render() {
+  //   var container = document.createElement('section');
+  //   var locationEl = document.createElement('ul');
+  //   var messageEl = document.createElement('li');
+
+  //   locationEl.textContent = this.name;
+  //   messageEl.textContent = `hour: ${this.soldPerHour} cookies`;
+
+  //   container.appendChild(locationEl);
+  //   container.appendChild(messageEl);
+  //   console.log('container', container);
+
+  //   var storesEl = document.getElementById('unordered-list');
+  //   storesEl.appendChild(container);
+  // }
 };
 
 storeThree.custPerHour();
 console.log(storeThree.soldPerHour);
+
+// storeThree.render();
 
 var storeFour = {
   name: "Capitol Hill",
@@ -73,11 +123,28 @@ var storeFour = {
       // console.log (cookiesPerHour);
       this.soldPerHour.push(cookiesPerHour);
     }
-  }
+  }//,
+  // render() {
+  //   var container = document.createElement('section');
+  //   var locationEl = document.createElement('ul');
+  //   var messageEl = document.createElement('li');
+
+  //   locationEl.textContent = this.name;
+  //   messageEl.textContent = `hour: ${this.soldPerHour} cookies`;
+
+  //   container.appendChild(locationEl);
+  //   container.appendChild(messageEl);
+  //   console.log('container', container);
+
+  //   var storesEl = document.getElementById('unordered-list');
+  //   storesEl.appendChild(container);
+  // }
 };
 
 storeFour.custPerHour();
 console.log(storeFour.soldPerHour);
+
+// storeFour.render();
 
 var storeFive = {
   name: "Alki",
@@ -92,8 +159,25 @@ var storeFive = {
       // console.log (cookiesPerHour);
       this.soldPerHour.push(cookiesPerHour);
     }
-  }
+  }//,
+  // render() {
+  //   var container = document.createElement('section');
+  //   var locationEl = document.createElement('ul');
+  //   var messageEl = document.createElement('li');
+
+  //   locationEl.textContent = this.name;
+  //   messageEl.textContent = `hour: ${this.soldPerHour} cookies`;
+
+  //   container.appendChild(locationEl);
+  //   container.appendChild(messageEl);
+  //   console.log('container', container);
+
+  //   var storesEl = document.getElementById('unordered-list');
+  //   storesEl.appendChild(container);
+  // }
 };
 
 storeFive.custPerHour();
 console.log(storeFive.soldPerHour);
+
+// storeFive.render();
