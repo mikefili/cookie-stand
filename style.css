@@ -1,3 +1,17 @@
 #main-content {
   font-family: 'Poor Story', cursive;
 }
+
+table {
+  border-collapse: collapse;
+  border: 1px solid rgb(202, 202, 202);
+}
+
+td {
+  border-bottom: 1px solid rgb(202, 202, 202);
+  border-right: 1px solid rgb(202, 202, 202);
+  padding: 5px;
+  font-family: 'Poor Story', cursive;
+  font-size: 20px;
+  text-align: center;
+}
