@@ -68,13 +68,16 @@ Store.prototype.render = function () {
 
 function generateTableFooter() {
   var tfEl = document.getElementById('tfoot');
-  var tfrEl = document.createElement('tr');
+  var tfrEl = document.createElement('td');
   tfEl.appendChild(tfrEl);
+  tfrEl.textContent = 'Total';
   for (var i = 0; i < hoursOfOp.length; i++) {
     var tableFooter = document.createElement('td');
     tableFooter.textContent = this.totalSales;
     tfEl.appendChild(tableFooter);
   }
+  var dailyTotals = document.createElement('td');
+  tfEl.appendChild(dailyTotals);
 }
 generateTableFooter();
 
