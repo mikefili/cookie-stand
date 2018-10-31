@@ -73,11 +73,12 @@ function generateTableFooter() {
   tfrEl.textContent = 'Total';
   for (var i = 0; i < hoursOfOp.length; i++) {
     var tableFooter = document.createElement('td');
-    tableFooter.textContent = this.totalSales;
+    tableFooter.textContent = 'x';
     tfEl.appendChild(tableFooter);
   }
   var dailyTotals = document.createElement('td');
   tfEl.appendChild(dailyTotals);
+  dailyTotals.textContent = 'Grand Total';
 }
 generateTableFooter();
 
