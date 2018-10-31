@@ -43,6 +43,7 @@ function generateTableHeader(array) {
     thEl.appendChild(tableHeader);
   }
   var dailyTotals = document.createElement('td');
+  thEl.appendChild(dailyTotals);
   dailyTotals.textContent = 'Daily Location Total';
 }
 generateTableHeader(hoursOfOp);
