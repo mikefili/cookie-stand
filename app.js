@@ -23,11 +23,11 @@ Store.prototype.randCustCount = function (min, max) {
 };
 
 Store.prototype.generateHourlySales = function () {
-  // console.log(this.min);
+  console.log(this.min);
   var cookiesPerHour;
   for (var i = 0; i < hoursOfOp.length; i++) {
     cookiesPerHour = Math.floor(this.randCustCount(this.min, this.max) * this.avgPerSale + 1);
-    // console.log(cookiesPerHour);
+    console.log(cookiesPerHour);
     this.cookieSales.push(cookiesPerHour);
     this.totalSales += cookiesPerHour;
   }
@@ -65,7 +65,7 @@ Store.prototype.render = function () {
   var total = document.createElement('td');
   total.textContent = this.totalSales;
   tbrEl.appendChild(total);
-  // console.log(total);
+  console.log(total);
 };
 
 function generateTableFooter() {
@@ -103,7 +103,7 @@ formEl.addEventListener('submit', function(event) {
   var minInput = event.target.minInput.value;
   var maxInput = event.target.maxInput.value;
   var avgCookiesInput = event.target.avgCookiesInput.value;
-
+  
   var newStore = document.createElement('tr');
   var minNumber = document.createElement('p');
   var maxNumber = document.createElement('p');
@@ -113,12 +113,6 @@ formEl.addEventListener('submit', function(event) {
   minNumber.textContent = minInput;
   maxNumber.textContent = maxInput;
   avgCookiesPer.textContent = avgCookiesInput;
-
-  // var resultsEl = document.getElementById('results');
-  // resultsEl.appendChild(newStore);
-  // resultsEl.appendChild(minNumber);
-  // resultsEl.appendChild(maxNumber);
-  // resultsEl.appendChild(avgCookiesPer);
 
   event.target.store = new Store (locationInput, minInput, maxInput, avgCookiesInput);
   console.log();
