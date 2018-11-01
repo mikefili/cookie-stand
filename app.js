@@ -9,7 +9,7 @@ function Store(name, min, max, avgPerSale) {
   this.avgPerSale = avgPerSale;
   this.cookieSales = [];
   this.totalSales = 0;
-  // this.hourlyTotals = 0;
+  this.hourlyTotals = [];
   this.generateHourlySales();
   this.render();
   stores.push(this);
@@ -34,14 +34,14 @@ Store.prototype.generateHourlySales = function () {
   return this.cookieSales;
 };
 
-function generateTableHeader(array) {
+function generateTableHeader() {
   var thEl = document.getElementById('thead');
   var thrEl = document.createElement('td');
   thEl.appendChild(thrEl);
   thrEl.textContent = 'Location';
   for (var i = 0; i < hoursOfOp.length; i++) {
     var tableHeader = document.createElement('td');
-    tableHeader.textContent = array[i];
+    tableHeader.textContent = hoursOfOp[i];
     thEl.appendChild(tableHeader);
   }
   var dailyTotals = document.createElement('td');
@@ -50,9 +50,17 @@ function generateTableHeader(array) {
 }
 generateTableHeader(hoursOfOp);
 
+// function createTableBody() {
+//   var tblEl = document.getElementById('sales-table');
+//   var tobodyEl = document.createElement('tbody');
+//   tbodyEl.id = 'tbl-body';
+//   tblEl.appendChild(tbodyEl);
+// }
+
 Store.prototype.render = function () {
   var tbodyEl = document.getElementById('tbody');
   var tbrEl = document.createElement('tr');
+  // tbrEl.id = this.name.toLowerCase().replace(' ', '_'); Scott will come back to this?
   tbodyEl.appendChild(tbrEl);
   var tbrLabel = document.createElement('th');
   tbrLabel.textContent = this.name;
@@ -69,18 +77,32 @@ Store.prototype.render = function () {
 };
 
 function generateTableFooter() {
+  var tfootEl = document.getElementById('tbl-foot');
+  if(tfootEl) {
+    tfootEl.remove();
+  }
+  // var tblEl = document.getElementById('sales-table');
   var tfEl = document.getElementById('tfoot');
   var tfrEl = document.createElement('td');
   tfEl.appendChild(tfrEl);
   tfrEl.textContent = 'Total';
+
+  var grandTotal = 0;
   for (var i = 0; i < hoursOfOp.length; i++) {
     var tableFooter = document.createElement('td');
     tableFooter.textContent = this.hourlyTotals;
     tfEl.appendChild(tableFooter);
+    var totals = 0
+    grandTotal += totals;
+
+    for (var j = 0; j < stores.length; j++) {
+      totals += stores[j].cookieSales[i];
+    }
+    grandTotal += totals;
   }
   var dailyTotals = document.createElement('td');
   tfEl.appendChild(dailyTotals);
-  dailyTotals.textContent = 'Grand Total';
+  dailyTotals.textContent = grandTotal;
 }
 generateTableFooter();
 
@@ -103,16 +125,6 @@ formEl.addEventListener('submit', function(event) {
   var minInput = event.target.minInput.value;
   var maxInput = event.target.maxInput.value;
   var avgCookiesInput = event.target.avgCookiesInput.value;
-  
-  var newStore = document.createElement('tr');
-  var minNumber = document.createElement('p');
-  var maxNumber = document.createElement('p');
-  var avgCookiesPer = document.createElement('p');
-
-  newStore.textContent = locationInput;
-  minNumber.textContent = minInput;
-  maxNumber.textContent = maxInput;
-  avgCookiesPer.textContent = avgCookiesInput;
 
   event.target.store = new Store (locationInput, minInput, maxInput, avgCookiesInput);
   console.log();
