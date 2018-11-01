@@ -40,8 +40,15 @@ header {
 #form-data {
   font-family: 'Montserrat', sans-serif;
   font-size: 18x;
+  text-align: center;
 }
 
-#submit {
-  /* align-self: auto; */
+/* #submit {
+  align-self: auto;
+} */
+
+body {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }
