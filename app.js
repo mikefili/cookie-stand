@@ -14,6 +14,8 @@ function Store(name, min, max, avgPerSale) {
   this.generateHourlySales();
   this.render();
   stores.push(this);
+
+  generateTableFooter();
 }
 
 Store.prototype.randCustCount = function (min, max) {
@@ -61,7 +63,9 @@ generateTableHeader(hoursOfOp);
 Store.prototype.render = function () {
   var tbodyEl = document.getElementById('tbody');
   var tbrEl = document.createElement('tr');
-  // tbrEl.id = this.name.toLowerCase().replace(' ', '_'); Scott will come back to this?
+
+  tbrEl.id = this.name.toLowerCase().split(' ').join('_');
+
   tbodyEl.appendChild(tbrEl);
   var tbrLabel = document.createElement('th');
   tbrLabel.textContent = this.name;
@@ -78,42 +82,45 @@ Store.prototype.render = function () {
 };
 
 function generateTableFooter() {
+  var tblEl = document.getElementsByTagName('table')[0];
   var tfootElCheck = document.getElementById('tbl-foot');
   if(tfootElCheck) {
     tfootElCheck.remove();
   }
   // var tblEl = document.getElementById('sales-table');
-  var tfEl = document.getElementById('tfoot');
+  // var tfEl = document.getElementById('tfoot');
+  var tfEl = document.createElement('tfoot');
   var tfrEl = document.createElement('tr');
   var tfdEl = document.createElement('td');
   tfdEl.textContent = 'Total';
   tfrEl.appendChild(tfdEl);
-  tfEl.appendChild(tfdEl);
+  tfEl.appendChild(tfrEl);
 
-  tfEl.id = 'tfoot';
+  tfEl.id = 'tbl-foot';
+
+  tblEl.appendChild(tfEl);
 
   var grandTotal = 0;
   for (var i = 0; i < hoursOfOp.length; i++) {
     var tableFooter = document.createElement('td');
     var totals = 0;
-    tfEl.appendChild(tableFooter);
 
-    console.log(grandTotal);
-    console.log(totals);
+    tfrEl.appendChild(tableFooter);
+
     for (var j = 0; j < stores.length; j++) {
-      totals += stores[i].cookieSales[j];
+      console.log('scott was here', stores[j].cookieSales[i]);
+      totals += stores[j].cookieSales[i];
     }
-    this.cookieSales += totals;
+
+    grandTotal += totals;
     tableFooter.textContent = totals;
-    tfEl.appendChild(tableFooter);
+    tfrEl.appendChild(tableFooter);
   }
-  console.log(grandTotal);
-  console.log(totals);
+
   var dailyTotals = document.createElement('td');
   dailyTotals.textContent = grandTotal;
-  tfEl.appendChild(dailyTotals);
+  tfrEl.appendChild(dailyTotals);
 }
-generateTableFooter();
 
 var storeOne = new Store ('First and Pike', 23, 65, 6.3);
 console.log(storeOne.cookieSales);
